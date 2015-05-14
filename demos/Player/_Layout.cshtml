@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Orwell Player - Azure for ASP.NET</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="Demo application for lozanotek's Azure for ASP.NET presentation.">
+    <meta name="author" content="lozanotek, inc.">
+    <meta property="og:title" content="Orwell Monitor - Azure for ASP.NET">
+    <meta property="og:type" content="Orwell">
+    <meta property="og:url" content="http://www.orwellasp.net">
+    <meta property="og:description" content="Demo application for lozanotek's Azure for ASP.NET presentation.">
+    <meta property="og:site_name" content="AzureASPNET">
+    <meta property="twitter:card" content="Demo application for lozanotek's Azure for ASP.NET presentation.">
+    <meta property="twitter:site" content="&#64;azureaspnet">
+    <link href="//cdn.orwellasp.net/css/bootstrap/base-style" rel="stylesheet" />
+    <link href="//cdn.orwellasp.net/css/site-style" rel="stylesheet" />
+    <script src="//cdn.orwellasp.net/bundles/modernizr"></script>
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    @RenderSection("head", false)
+</head>
+<body>
+    <!-- Static navbar -->
+    <div class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <span class="navbar-brand">&nbsp;&nbsp;Orwell</span>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="~/">Home</a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+    <section class="container">
+        <div class="row">
+            @RenderBody()
+        </div>
+    </section>
+    <div class="clearfix">
+    </div>
+    <!-- /container -->
+    <script src="//cdn.orwellasp.net/bundles/jquery" type="text/javascript"></script>
+    <script src="//cdn.orwellasp.net/bundles/bootstrap" type="text/javascript"></script>
+    @RenderSection("scripts", false)
+</body>
+</html>

@@ -1,0 +1,16 @@
+﻿@using System.Configuration
+
+@{
+
+    Response.StatusCode = 200;
+    Response.ContentType = "text/plain";
+
+    var location = ConfigurationManager.AppSettings["client.Location"];
+
+    if (string.IsNullOrWhiteSpace(location))
+    {
+        location = "Not Specified";
+    }
+
+    Response.Write(location);
+}

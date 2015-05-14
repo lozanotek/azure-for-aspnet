@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Orwell.API.Client.SystemEvent>
+
+<style type="text/css">
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
+<div class="container well-sm">
+    <h2>System Events</h2>
+
+    <table class="table table-bordered table-condensed table-responsive table-striped">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Message</th>
+                <th>Username</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var sysEvent in Model) {
+                <tr>
+                    <td>@sysEvent.Date</td>
+                    <td>@sysEvent.Message</td>
+                    <td>@sysEvent.User</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div>
+        <h5>Page Refresh</h5>
+        <button id="startRefresh" class="btn btn-success btn-sm">Start</button>
+        <button id="stopRefresh" class="btn btn-danger btn-sm">Stop</button>
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        var timeoutID;
+
+        $(function () {
+            timeoutID = setTimeout(function () {
+                location.reload(true);
+            }, 2000);
+
+            $("#startRefresh").attr("disabled", "disabled");
+        });
+
+        $("#stopRefresh").click(function () {
+            window.clearTimeout(timeoutID);
+            $("#startRefresh").removeAttr("disabled");
+        });
+
+        $("#startRefresh").click(function () {
+            location.reload(true);
+        });
+    </script>
+}

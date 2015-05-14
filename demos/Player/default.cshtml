@@ -1,0 +1,59 @@
+﻿@{
+    Layout = "~/_Layout.cshtml";
+}
+@section scripts {
+    <script type="text/javascript" src="/scripts/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="/scripts/jquery.signalR-2.2.0.min.js"></script>
+
+    @*<script type="text/javascript" src="//hub.orwellasp.net/signalr/hubs"></script>*@
+    <script type="text/javascript" src="//api.orwellasp.net/api/video"></script>
+
+    <script type="text/javascript" src="http://localhost:8082/signalr/hubs"></script>
+    @*
+        <script type="text/javascript" src="http://localhost:8083/api/video"></script>
+    *@
+
+    <script type="text/javascript">
+        $(function () {
+            //$.connection.hub.url = "http://hub.orwellasp.net/signalr";
+            $.connection.hub.url = "http://localhost:8082/signalr";
+            $.connection.hub.logging = true;
+
+            var videoPlayer = $.connection.videoHub;
+            //var dataSync = $.connection.dataHub;
+
+            //dataSync.client.videoAdded = function (title) {
+            //    $("#syncMessage")
+            //        .html("Video " + title + " has been added.")
+            //        .append("<br />")
+            //        .append("<button onclick='location.reload(true);'>Reload Page</button>");
+            //};
+
+            $.connection.hub.start().done(function () {
+                $('#playVideo').click(function () {
+                    var index = $("#videoList").val();
+                    videoPlayer.server.play(index);
+                });
+            });
+
+            $.connection.hub.disconnected(function () {
+                setTimeout(function () {
+                    $.connection.hub.start();
+                }, 5000);
+            });
+
+            $.each(__videos, function (index, video) {
+                $('#videoList').append(
+                    $('<option></option>')
+                    .val(index)
+                    .html(video.Title));
+            });
+        });
+    </script>
+}
+<div class="well-sm">
+    <h2>Video Player</h2>
+    <select id="videoList" name="videoList"></select>
+    <button id="playVideo" class="btn btn-primary">Play Video</button>
+    <div id="syncMessage"></div>
+</div>

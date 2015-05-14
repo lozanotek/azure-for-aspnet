@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Orwell CDN - Azure for ASP.NET</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="Demo application for lozanotek's Azure for ASP.NET presentation.">
+    <meta name="author" content="lozanotek, inc.">
+    <meta property="og:title" content="Orwell API - Azure for ASP.NET">
+    <meta property="og:type" content="Orwell">
+    <meta property="og:url" content="http://orwell.azure-asp.net">
+    <meta property="og:description" content="Demo application for lozanotek's Azure for ASP.NET presentation.">
+    <meta property="og:site_name" content="AzureASPNET">
+    <meta property="twitter:card" content="Demo application for lozanotek's Azure for ASP.NET presentation.">
+    <meta property="twitter:site" content="&#64;azureaspnet">
+    @Styles.Render("~/css/bootstrap/base-style")
+    @Styles.Render("~/css/site-style")
+    @Scripts.Render("~/bundles/modernizr")
+    <!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+    @RenderSection("head", false)
+</head>
+<body>
+    <!-- Static navbar -->
+    <div class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <span class="navbar-brand">&nbsp;&nbsp;Orwell</span>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="~/">Home</a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+    <section class="container">
+        <div class="row">
+            @RenderBody()
+        </div>
+    </section>
+    <div class="clearfix">
+    </div>
+
+    <!-- /container -->
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", false)
+</body>
+</html>
